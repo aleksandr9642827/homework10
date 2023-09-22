@@ -1,7 +1,21 @@
 public class Radio {
-    private int currentStation = 0;
-    private int currentVolume = 10;
+    private int currentStation;
+    private int currentVolume;
+    private int radioStationCount;
     private String error;
+
+    Radio(int count) {
+        currentStation = 0;
+        currentVolume = 10;
+        error = null;
+        radioStationCount = count;
+    }
+    Radio() {
+        currentStation = 0;
+        currentVolume = 10;
+        error = null;
+        radioStationCount = 10;
+    }
 
     public void setMaxVolume() {
         while (this.currentVolume != 100) {
@@ -33,7 +47,7 @@ public class Radio {
 
     public void setRadioStation(int currentStation) {
         int firstStation = 0;
-        int lastStation = 9;
+        int lastStation = this.radioStationCount - 1;
         if (currentStation >= firstStation && currentStation <= lastStation) {
             this.currentStation = currentStation;
             this.error = null;
