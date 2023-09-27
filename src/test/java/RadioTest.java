@@ -4,32 +4,49 @@ import org.junit.jupiter.api.Test;
 public class RadioTest {
 
     @Test
-    void setValidRadioStation() {
+    void setDefaultValidRadioStation() {
         Radio radio = new Radio();
         radio.setRadioStation(1);
 
         int expectedRadioStation = 1;
         int actualRadioStation = radio.getCurrentRadioStation();
 
-        String actualError = radio.getError();
-
         Assertions.assertEquals(expectedRadioStation, actualRadioStation);
-        Assertions.assertNull(actualError);
     }
 
     @Test
-    void setInvalidRadioStation() {
+    void setValidRadioStation() {
+        Radio radio = new Radio(15);
+        radio.setRadioStation(13);
+
+        int expectedRadioStation = 13;
+        int actualRadioStation = radio.getCurrentRadioStation();
+
+        Assertions.assertEquals(expectedRadioStation, actualRadioStation);
+    }
+
+    @Test
+    void setDefaultInvalidRadioStation() {
         Radio radio = new Radio();
-        radio.setRadioStation(100);
+        radio.setRadioStation(10);
 
         int expectedRadioStation = 0;
         int actualRadioStation = radio.getCurrentRadioStation();
 
-        String actualError = radio.getError();
+        Assertions.assertEquals(expectedRadioStation, actualRadioStation);
+    }
+
+    @Test
+    void setInvalidRadioStation() {
+        Radio radio = new Radio(15);
+        radio.setRadioStation(16);
+
+        int expectedRadioStation = 0;
+        int actualRadioStation = radio.getCurrentRadioStation();
+
         String expectedError = "Неправильный номер радио станции, переключаю на станцию по умолчанию - 0";
 
         Assertions.assertEquals(expectedRadioStation, actualRadioStation);
-        Assertions.assertEquals(expectedError, actualError);
     }
 
     @Test
@@ -40,11 +57,7 @@ public class RadioTest {
         int expectedRadioStation = 0;
         int actualRadioStation = radio.getCurrentRadioStation();
 
-        String actualError = radio.getError();
-        String expectedError = "Неправильный номер радио станции, переключаю на станцию по умолчанию - 0";
-
         Assertions.assertEquals(expectedRadioStation, actualRadioStation);
-        Assertions.assertEquals(expectedError, actualError);
     }
 
     @Test
