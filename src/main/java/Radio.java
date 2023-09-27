@@ -2,18 +2,15 @@ public class Radio {
     private int currentStation;
     private int currentVolume;
     private int radioStationCount;
-    private String error;
 
     Radio(int count) {
         currentStation = 0;
         currentVolume = 10;
-        error = null;
         radioStationCount = count;
     }
     Radio() {
         currentStation = 0;
         currentVolume = 10;
-        error = null;
         radioStationCount = 10;
     }
 
@@ -50,19 +47,13 @@ public class Radio {
         int lastStation = this.radioStationCount - 1;
         if (currentStation >= firstStation && currentStation <= lastStation) {
             this.currentStation = currentStation;
-            this.error = null;
         } else {
-            this.error = "Неправильный номер радио станции, переключаю на станцию по умолчанию - 0";
             this.currentStation = 0;
         }
     }
 
     public int getCurrentRadioStation() {
         return currentStation;
-    }
-
-    public String getError() {
-        return error;
     }
 
     public void nextRadioStation() {

@@ -11,10 +11,7 @@ public class RadioTest {
         int expectedRadioStation = 1;
         int actualRadioStation = radio.getCurrentRadioStation();
 
-        String actualError = radio.getError();
-
         Assertions.assertEquals(expectedRadioStation, actualRadioStation);
-        Assertions.assertNull(actualError);
     }
 
     @Test
@@ -25,10 +22,7 @@ public class RadioTest {
         int expectedRadioStation = 13;
         int actualRadioStation = radio.getCurrentRadioStation();
 
-        String actualError = radio.getError();
-
         Assertions.assertEquals(expectedRadioStation, actualRadioStation);
-        Assertions.assertNull(actualError);
     }
 
     @Test
@@ -39,11 +33,7 @@ public class RadioTest {
         int expectedRadioStation = 0;
         int actualRadioStation = radio.getCurrentRadioStation();
 
-        String actualError = radio.getError();
-        String expectedError = "Неправильный номер радио станции, переключаю на станцию по умолчанию - 0";
-
         Assertions.assertEquals(expectedRadioStation, actualRadioStation);
-        Assertions.assertEquals(expectedError, actualError);
     }
 
     @Test
@@ -54,11 +44,9 @@ public class RadioTest {
         int expectedRadioStation = 0;
         int actualRadioStation = radio.getCurrentRadioStation();
 
-        String actualError = radio.getError();
         String expectedError = "Неправильный номер радио станции, переключаю на станцию по умолчанию - 0";
 
         Assertions.assertEquals(expectedRadioStation, actualRadioStation);
-        Assertions.assertEquals(expectedError, actualError);
     }
 
     @Test
@@ -69,11 +57,7 @@ public class RadioTest {
         int expectedRadioStation = 0;
         int actualRadioStation = radio.getCurrentRadioStation();
 
-        String actualError = radio.getError();
-        String expectedError = "Неправильный номер радио станции, переключаю на станцию по умолчанию - 0";
-
         Assertions.assertEquals(expectedRadioStation, actualRadioStation);
-        Assertions.assertEquals(expectedError, actualError);
     }
 
     @Test
